@@ -1,17 +1,17 @@
 CFLAGS=-g -Wall
 CC=gcc
-SRCS=tokenizer.c token-shell.c
-OBJS=tokenizer.o token-shell.o
-LDFLAGS=
+SRCS=tokenizer.c
+OBJS=tokenizer.o
+LDFLAGS=-g
 LIBS=
 
-all:    token-shell
+all:reina-shell
 
 $(SRCS):
 	$(CC) $(CFLAGS) -c $*.c
 
-token-shell: $(OBJS)
-	$(CC) $(LDFLAGS) $(LIBS) -o token-shell $(OBJS)
+reina-shell: $(OBJS)
+	$(CC) $(LDFLAGS) $(LIBS) reina.c -o reina-shell $(OBJS)
 
 clean:
-	rm -f *.o token-shell
+	rm -f *.o token-shell reina-shell
